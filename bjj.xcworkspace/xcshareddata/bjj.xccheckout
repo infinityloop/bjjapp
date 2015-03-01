@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8E41ED19-4294-461A-A3E5-DC41E568718A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>bjj</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D1B182E53580EFD3BDFBE4C448FF62A75766B45D</key>
+		<string>https://github.com/infinityloop/bjjapp.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>bjj.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D1B182E53580EFD3BDFBE4C448FF62A75766B45D</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/infinityloop/bjjapp.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D1B182E53580EFD3BDFBE4C448FF62A75766B45D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D1B182E53580EFD3BDFBE4C448FF62A75766B45D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>bjj</string>
+		</dict>
+	</array>
+</dict>
+</plist>
