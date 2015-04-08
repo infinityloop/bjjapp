@@ -47,6 +47,11 @@ class AddCompetitorViewController: UIViewController, UITableViewDataSource, UITa
 
         self.view.addSubview(self.tableView)
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBarHidden = false
+    }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         

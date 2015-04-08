@@ -17,6 +17,11 @@ class MenuViewController: UIViewController {
         self.setupForm()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBarHidden = true
+    }
+    
     func setupForm() {
         let buttonPadding: CGFloat = 10.0
         

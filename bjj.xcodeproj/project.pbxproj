@@ -9,7 +9,13 @@
 /* Begin PBXBuildFile section */
 		441781E8EE2FE52D1A5D106A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B1A8034D6EA855835EA6F91 /* libPods.a */; };
 		752CD0561A99933F00836CE7 /* CompetitorTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CD0551A99933F00836CE7 /* CompetitorTableCell.swift */; };
-		759327C51AA2782300197092 /* CountdownTimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759327C41AA2782300197092 /* CountdownTimerLabel.swift */; };
+		75AABB361AA5209900A5BA73 /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AABB351AA5209900A5BA73 /* UIView+Utils.m */; };
+		75AABB3A1AA53D7F00A5BA73 /* TimerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AABB391AA53D7F00A5BA73 /* TimerTableView.swift */; };
+		75AABB3C1AA6922A00A5BA73 /* TimerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AABB3B1AA6922A00A5BA73 /* TimerTableViewCell.swift */; };
+		75AABB3E1AA698A700A5BA73 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AABB3D1AA698A700A5BA73 /* TimerLabel.swift */; };
+		75CBF2951AD4B1DC00A01396 /* ScoreboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CBF2941AD4B1DC00A01396 /* ScoreboardModel.swift */; };
+		75CBF2971AD4B41A00A01396 /* ScoreboardLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CBF2961AD4B41A00A01396 /* ScoreboardLabel.swift */; };
+		75CBF2991AD4C02F00A01396 /* CountdownTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CBF2981AD4C02F00A01396 /* CountdownTimerView.swift */; };
 		75E1692E1A980CF20086FD3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E1692D1A980CF20086FD3F /* AppDelegate.swift */; };
 		75E169301A980CF20086FD3F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E1692F1A980CF20086FD3F /* MenuViewController.swift */; };
 		75E169351A980CF20086FD3F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75E169341A980CF20086FD3F /* Images.xcassets */; };
@@ -33,7 +39,14 @@
 /* Begin PBXFileReference section */
 		4B1A8034D6EA855835EA6F91 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		752CD0551A99933F00836CE7 /* CompetitorTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitorTableCell.swift; sourceTree = "<group>"; };
-		759327C41AA2782300197092 /* CountdownTimerLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownTimerLabel.swift; sourceTree = "<group>"; };
+		75AABB341AA5209900A5BA73 /* UIView+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utils.h"; sourceTree = "<group>"; };
+		75AABB351AA5209900A5BA73 /* UIView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utils.m"; sourceTree = "<group>"; };
+		75AABB391AA53D7F00A5BA73 /* TimerTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerTableView.swift; sourceTree = "<group>"; };
+		75AABB3B1AA6922A00A5BA73 /* TimerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerTableViewCell.swift; sourceTree = "<group>"; };
+		75AABB3D1AA698A700A5BA73 /* TimerLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
+		75CBF2941AD4B1DC00A01396 /* ScoreboardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardModel.swift; sourceTree = "<group>"; };
+		75CBF2961AD4B41A00A01396 /* ScoreboardLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardLabel.swift; sourceTree = "<group>"; };
+		75CBF2981AD4C02F00A01396 /* CountdownTimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownTimerView.swift; sourceTree = "<group>"; };
 		75E169281A980CF20086FD3F /* bjj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bjj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75E1692C1A980CF20086FD3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75E1692D1A980CF20086FD3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,7 +87,11 @@
 		759327C31AA277F500197092 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				759327C41AA2782300197092 /* CountdownTimerLabel.swift */,
+				75AABB391AA53D7F00A5BA73 /* TimerTableView.swift */,
+				75AABB3B1AA6922A00A5BA73 /* TimerTableViewCell.swift */,
+				75AABB3D1AA698A700A5BA73 /* TimerLabel.swift */,
+				75CBF2961AD4B41A00A01396 /* ScoreboardLabel.swift */,
+				75CBF2981AD4C02F00A01396 /* CountdownTimerView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -104,10 +121,10 @@
 			children = (
 				75E1698A1A98F1560086FD3F /* Utilities */,
 				75E169561A98EC380086FD3F /* Models */,
+				759327C31AA277F500197092 /* Views */,
 				75E169551A98EBC00086FD3F /* Controllers */,
 				75E169341A980CF20086FD3F /* Images.xcassets */,
 				75E1692D1A980CF20086FD3F /* AppDelegate.swift */,
-				759327C31AA277F500197092 /* Views */,
 				75E1692B1A980CF20086FD3F /* Supporting Files */,
 			);
 			path = bjj;
@@ -153,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				75E169571A98EC620086FD3F /* competitorModel.swift */,
+				75CBF2941AD4B1DC00A01396 /* ScoreboardModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -163,6 +181,8 @@
 				75E1698B1A98F17E0086FD3F /* bjj-Bridging-Header.h */,
 				75E1698F1A98F1AC0086FD3F /* NSDictionary+Utils.h */,
 				75E169901A98F1AC0086FD3F /* NSDictionary+Utils.m */,
+				75AABB341AA5209900A5BA73 /* UIView+Utils.h */,
+				75AABB351AA5209900A5BA73 /* UIView+Utils.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -318,13 +338,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				75E169541A98EB410086FD3F /* AddCompetitorViewController.swift in Sources */,
+				75CBF2951AD4B1DC00A01396 /* ScoreboardModel.swift in Sources */,
+				75CBF2991AD4C02F00A01396 /* CountdownTimerView.swift in Sources */,
 				75E169301A980CF20086FD3F /* MenuViewController.swift in Sources */,
 				75E169581A98EC620086FD3F /* competitorModel.swift in Sources */,
 				752CD0561A99933F00836CE7 /* CompetitorTableCell.swift in Sources */,
 				75E169511A98E2860086FD3F /* ScoreboardViewController.swift in Sources */,
 				75E169911A98F1AC0086FD3F /* NSDictionary+Utils.m in Sources */,
-				759327C51AA2782300197092 /* CountdownTimerLabel.swift in Sources */,
+				75AABB3A1AA53D7F00A5BA73 /* TimerTableView.swift in Sources */,
 				75E1692E1A980CF20086FD3F /* AppDelegate.swift in Sources */,
+				75AABB3E1AA698A700A5BA73 /* TimerLabel.swift in Sources */,
+				75AABB361AA5209900A5BA73 /* UIView+Utils.m in Sources */,
+				75AABB3C1AA6922A00A5BA73 /* TimerTableViewCell.swift in Sources */,
+				75CBF2971AD4B41A00A01396 /* ScoreboardLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,11 +457,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = bjj/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "bjj/bjj-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -446,10 +475,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = bjj/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "bjj/bjj-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
