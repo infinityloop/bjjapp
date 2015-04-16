@@ -54,8 +54,8 @@ class CompetitorTableCell: UITableViewCell {
         var textWidth: CGFloat = cellWidth / CGFloat(self.rowArray.count) - spacing - offset
         
         var valueField:UITextField = UITextField(frame: CGRectMake(offset, 0, textWidth - spacing, self.bounds.height))
-        self.valueKey = self.rowArray.objectAtIndex(0).allKeys[0] as NSString
-        valueField.placeholder = self.rowArray.objectAtIndex(0).allValues[0] as NSString
+        self.valueKey = self.rowArray.objectAtIndex(0).allKeys[0] as! NSString
+        valueField.placeholder = self.rowArray.objectAtIndex(0).allValues[0] as! NSString as String
         self.addSubview(valueField)
         self.valueField = valueField
 
@@ -66,7 +66,7 @@ class CompetitorTableCell: UITableViewCell {
             self.addSubview(separator)
             
             var secondaryValueField:UITextField = UITextField(frame: CGRectMake(offset, 0, textWidth, self.bounds.height))
-            secondaryValueField.placeholder = self.rowArray.objectAtIndex(1).allValues[0] as NSString
+            secondaryValueField.placeholder = self.rowArray.objectAtIndex(1).allValues[0] as! NSString as String
             secondaryValueField.frame.origin.x = textWidth + 2*spacing + offset
             self.addSubview(secondaryValueField)
             self.secondaryField = secondaryValueField

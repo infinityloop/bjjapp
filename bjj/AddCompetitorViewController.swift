@@ -58,10 +58,10 @@ class AddCompetitorViewController: UIViewController, UITableViewDataSource, UITa
         var cell:CompetitorTableCell = CompetitorTableCell(style: UITableViewCellStyle.Default, reuseIdentifier: self.cellReusableIdentifier)
         var sectionIndex: NSInteger = indexPath.section
 
-        var keyStringDictionary:NSArray = self.rowArray[indexPath.row] as NSArray
+        var keyStringDictionary:NSArray = self.rowArray[indexPath.row] as! NSArray
         self.count++
 
-        cell.rowArray = self.rowArray[indexPath.row] as NSArray
+        cell.rowArray = self.rowArray[indexPath.row] as! NSArray
         
         cell.setupCell()
         

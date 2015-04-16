@@ -100,14 +100,14 @@ class CountdownTimerView: UIView, TimeTableDelegate {
         self.centisecondLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
         
         var colonLabel: UILabel = UILabel()
-        colonLabel.text = self.colonSpacer
+        colonLabel.text = self.colonSpacer as String
         colonLabel.textColor = self.activeColor
         colonLabel.textAlignment = NSTextAlignment.Center
         colonLabel.font = UIFont.systemFontOfSize(30)
         colonLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
         
         var periodLabel: UILabel = UILabel()
-        periodLabel.text = self.periodSpacer
+        periodLabel.text = self.periodSpacer as String
         periodLabel.textColor = UIColor.whiteColor()
         periodLabel.textAlignment = NSTextAlignment.Center
         periodLabel.font = UIFont.systemFontOfSize(30)
@@ -131,13 +131,13 @@ class CountdownTimerView: UIView, TimeTableDelegate {
 
         var viewDictionary: NSDictionary = ["minute": self.minuteTableView, "second": self.secondTableView, "centisecond": self.centisecondLabel, "colon": colonLabel, "period": periodContainer]
         
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[minute][colon][second][period][centisecond]|", options: nil, metrics: nil, views: viewDictionary))
+        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[minute][colon][second][period][centisecond]|", options: nil, metrics: nil, views: viewDictionary as [NSObject : AnyObject]))
         
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[minute]|", options: nil, metrics: nil, views: viewDictionary))
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[colon]|", options: nil, metrics: nil, views: viewDictionary))
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[second]|", options: nil, metrics: nil, views: viewDictionary))
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[period]|", options: nil, metrics: nil, views: viewDictionary))
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[centisecond]|", options: nil, metrics: nil, views: viewDictionary))
+        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[minute]|", options: nil, metrics: nil, views: viewDictionary as [NSObject : AnyObject]))
+        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[colon]|", options: nil, metrics: nil, views: viewDictionary as [NSObject : AnyObject]))
+        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[second]|", options: nil, metrics: nil, views: viewDictionary as [NSObject : AnyObject]))
+        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[period]|", options: nil, metrics: nil, views: viewDictionary as [NSObject : AnyObject]))
+        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[centisecond]|", options: nil, metrics: nil, views: viewDictionary as [NSObject : AnyObject]))
         
         self.addConstraint(NSLayoutConstraint(item: self.minuteTableView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Height, multiplier: 1.0, constant: 0))
         self.addConstraint(NSLayoutConstraint(item: self.minuteTableView, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Width, multiplier: 0.3, constant: 0))
@@ -209,7 +209,7 @@ class CountdownTimerView: UIView, TimeTableDelegate {
             self.secondTableView.scrollToRow(self.seconds)
         }
         
-        self.centisecondLabel.text = NSString(format:"%02.0f", self.centiSeconds)
+        self.centisecondLabel.text = NSString(format:"%02.0f", self.centiSeconds) as String
     }
     
     func startTimer() {

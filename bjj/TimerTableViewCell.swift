@@ -19,8 +19,8 @@ class TimerTableViewCell: UITableViewCell {
         self.contentView.addSubview(numLabel)
         
         var viewDictionary: NSDictionary = ["numLabel": numLabel]
-        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[numLabel]|", options: nil, metrics: nil, views: viewDictionary))
-        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[numLabel]|", options: nil, metrics: nil, views: viewDictionary))
+        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[numLabel]|", options: nil, metrics: nil, views: viewDictionary as [NSObject : AnyObject]))
+        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[numLabel]|", options: nil, metrics: nil, views: viewDictionary as [NSObject : AnyObject]))
         
 //        var widthConstraint: NSLayoutConstraint = NSLayoutConstraint(item: numLabel, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: self.contentView, attribute: NSLayoutAttribute.Width, multiplier: 1.0, constant: 0)
 //        

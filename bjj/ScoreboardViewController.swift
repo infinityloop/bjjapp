@@ -24,7 +24,6 @@ class ScoreboardViewController: UIViewController, CountdownTimerDelegate {
     var blueScore: UILabel!
     var blueAdvantage: UILabel!
     var bluePenalty: UILabel!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +35,7 @@ class ScoreboardViewController: UIViewController, CountdownTimerDelegate {
         self.timer.delegate = self
         
         self.redScoreboard = UIView(frame: CGRectZero)
-        self.redScoreboard.backgroundColor = UIColor.redColor()
+        self.redScoreboard.backgroundColor = UIColor.purpleColor()
         self.redScoreboard.setTranslatesAutoresizingMaskIntoConstraints(false)
         
         self.blueScoreboard = UIView(frame: CGRectZero)
@@ -53,6 +52,7 @@ class ScoreboardViewController: UIViewController, CountdownTimerDelegate {
         
         self.scoreboardModel = ScoreboardModel()
     }
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -91,6 +91,9 @@ class ScoreboardViewController: UIViewController, CountdownTimerDelegate {
     }
     
     func layoutRedScoreboard() {
+        var competitorLabel:ScoreboardLabel = ScoreboardLabel(frame: CGRectZero, text: "Competitor 1", fontSize: 100, textAlignment: NSTextAlignment.Center)
+        competitorLabel.baselineAdjustment = UIBaselineAdjustment.AlignCenters
+        self.redScoreboard.addSubview(competitorLabel)
         
         var pointsLabel: ScoreboardLabel = ScoreboardLabel(frame: CGRectZero, text: "00", fontSize: 200, textAlignment: NSTextAlignment.Left)
         self.redScoreboard.addSubview(pointsLabel)
@@ -137,16 +140,19 @@ class ScoreboardViewController: UIViewController, CountdownTimerDelegate {
         textSpacerView.setTranslatesAutoresizingMaskIntoConstraints(false)
         
         
-        var viewDictionary: NSDictionary = ["pointsLabel": pointsLabel, "advantageLabel": advantageLabel, "advantageTextLabel": advantageTextLabel, "penaltyLabel": penaltyLabel, "penaltyTextLabel": penaltyTextLabel, "timerPaddingView": timerPaddingView, "textSpacerView": textSpacerView]
+        var viewDictionary: NSDictionary = ["competitorLabel": competitorLabel, "pointsLabel": pointsLabel, "advantageLabel": advantageLabel, "advantageTextLabel": advantageTextLabel, "penaltyLabel": penaltyLabel, "penaltyTextLabel": penaltyTextLabel, "timerPaddingView": timerPaddingView, "textSpacerView": textSpacerView]
         var metricsDictionary: NSDictionary = ["topPadding": self.view.bounds.height*0.1, "spacing": 20]
+
+        self.redScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[competitorLabel]-|", options: nil, metrics: metricsDictionary as [NSObject : AnyObject], views: viewDictionary as [NSObject : AnyObject]))
+        self.redScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-spacing-[pointsLabel]-|", options: nil, metrics: metricsDictionary as [NSObject : AnyObject], views: viewDictionary as [NSObject : AnyObject]))
+        self.redScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-spacing-[advantageLabel]", options: nil, metrics: metricsDictionary as [NSObject : AnyObject], views: viewDictionary as [NSObject : AnyObject]))
+        self.redScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[advantageTextLabel]", options: nil, metrics: metricsDictionary as [NSObject : AnyObject], views: viewDictionary as [NSObject : AnyObject]))
+        self.redScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-spacing-[penaltyLabel]", options: nil, metrics: metricsDictionary as [NSObject : AnyObject], views: viewDictionary as [NSObject : AnyObject]))
+        self.redScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[penaltyTextLabel]", options: nil, metrics: metricsDictionary as [NSObject : AnyObject], views: viewDictionary as [NSObject : AnyObject]))
         
-        self.redScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-spacing-[pointsLabel]-|", options: nil, metrics: metricsDictionary, views: viewDictionary))
-        self.redScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-spacing-[advantageLabel]", options: nil, metrics: metricsDictionary, views: viewDictionary))
-        self.redScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[advantageTextLabel]", options: nil, metrics: metricsDictionary, views: viewDictionary))
-        self.redScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-spacing-[penaltyLabel]", options: nil, metrics: metricsDictionary, views: viewDictionary))
-        self.redScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[penaltyTextLabel]", options: nil, metrics: metricsDictionary, views: viewDictionary))
+        self.redScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-spacing-[competitorLabel][pointsLabel]-[advantageLabel][advantageTextLabel]-[penaltyLabel][penaltyTextLabel]-spacing-[timerPaddingView]|", options: nil, metrics: metricsDictionary as [NSObject : AnyObject], views: viewDictionary as [NSObject : AnyObject]))
         
-        self.redScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[pointsLabel]-[advantageLabel][advantageTextLabel]-[penaltyLabel][penaltyTextLabel]-spacing-[timerPaddingView]|", options: nil, metrics: metricsDictionary, views: viewDictionary))
+        self.redScoreboard.addConstraint(NSLayoutConstraint(item: competitorLabel, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: pointsLabel, attribute: NSLayoutAttribute.Height, multiplier: 0.5, constant: 0))
         
         self.redScoreboard.addConstraint(NSLayoutConstraint(item: advantageLabel, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: pointsLabel, attribute: NSLayoutAttribute.Height, multiplier: 0.9, constant: 0))
 
@@ -162,6 +168,9 @@ class ScoreboardViewController: UIViewController, CountdownTimerDelegate {
     
     func layoutBlueScoreboard() {
         
+        var competitorLabel:ScoreboardLabel = ScoreboardLabel(frame: CGRectZero, text: "Competitor 2", fontSize: 100, textAlignment: NSTextAlignment.Center)
+        self.blueScoreboard.addSubview(competitorLabel)
+        
         var pointsLabel: ScoreboardLabel = ScoreboardLabel(frame: CGRectZero, text: "00", fontSize: 200, textAlignment: NSTextAlignment.Right)
         self.blueScoreboard.addSubview(pointsLabel)
         self.blueScore = pointsLabel
@@ -171,7 +180,6 @@ class ScoreboardViewController: UIViewController, CountdownTimerDelegate {
         scoreTapGesture.requireGestureRecognizerToFail(scoreSwipeGesture)
         self.blueScore.addGestureRecognizer(scoreSwipeGesture)
         self.blueScore.addGestureRecognizer(scoreTapGesture)
-
         
         var advantageLabel: ScoreboardLabel = ScoreboardLabel(frame: CGRectZero, text: "0", fontSize: 120, textAlignment: NSTextAlignment.Right)
         self.blueScoreboard.addSubview(advantageLabel)
@@ -209,16 +217,19 @@ class ScoreboardViewController: UIViewController, CountdownTimerDelegate {
         textSpacerView.setTranslatesAutoresizingMaskIntoConstraints(false)
         
         
-        var viewDictionary: NSDictionary = ["pointsLabel": pointsLabel, "advantageLabel": advantageLabel, "advantageTextLabel": advantageTextLabel, "penaltyLabel": penaltyLabel, "penaltyTextLabel": penaltyTextLabel, "timerPaddingView": timerPaddingView, "textSpacerView": textSpacerView]
+        var viewDictionary: NSDictionary = ["competitorLabel": competitorLabel, "pointsLabel": pointsLabel, "advantageLabel": advantageLabel, "advantageTextLabel": advantageTextLabel, "penaltyLabel": penaltyLabel, "penaltyTextLabel": penaltyTextLabel, "timerPaddingView": timerPaddingView, "textSpacerView": textSpacerView]
         var metricsDictionary: NSDictionary = ["topPadding": self.view.bounds.height*0.1, "spacing": 20]
         
-        self.blueScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[pointsLabel]-spacing-|", options: nil, metrics: metricsDictionary, views: viewDictionary))
-        self.blueScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[advantageLabel]-spacing-|", options: nil, metrics: metricsDictionary, views: viewDictionary))
-        self.blueScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[advantageTextLabel]-|", options: nil, metrics: metricsDictionary, views: viewDictionary))
-        self.blueScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[penaltyLabel]-spacing-|", options: nil, metrics: metricsDictionary, views: viewDictionary))
-        self.blueScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[penaltyTextLabel]-|", options: nil, metrics: metricsDictionary, views: viewDictionary))
+        self.blueScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[competitorLabel]-|", options: nil, metrics: metricsDictionary as [NSObject : AnyObject], views: viewDictionary as [NSObject : AnyObject]))
+        self.blueScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[pointsLabel]-spacing-|", options: nil, metrics: metricsDictionary as [NSObject : AnyObject], views: viewDictionary as [NSObject : AnyObject]))
+        self.blueScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[advantageLabel]-spacing-|", options: nil, metrics: metricsDictionary as [NSObject : AnyObject], views: viewDictionary as [NSObject : AnyObject]))
+        self.blueScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[advantageTextLabel]-|", options: nil, metrics: metricsDictionary as [NSObject : AnyObject], views: viewDictionary as [NSObject : AnyObject]))
+        self.blueScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[penaltyLabel]-spacing-|", options: nil, metrics: metricsDictionary as [NSObject : AnyObject], views: viewDictionary as [NSObject : AnyObject]))
+        self.blueScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[penaltyTextLabel]-|", options: nil, metrics: metricsDictionary as [NSObject : AnyObject], views: viewDictionary as [NSObject : AnyObject]))
         
-        self.blueScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[pointsLabel]-[advantageLabel][advantageTextLabel]-[penaltyLabel][penaltyTextLabel]-spacing-[timerPaddingView]|", options: nil, metrics: metricsDictionary, views: viewDictionary))
+        self.blueScoreboard.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-spacing-[competitorLabel][pointsLabel]-[advantageLabel][advantageTextLabel]-[penaltyLabel][penaltyTextLabel]-spacing-[timerPaddingView]|", options: nil, metrics: metricsDictionary as [NSObject : AnyObject], views: viewDictionary as [NSObject : AnyObject]))
+        
+        self.blueScoreboard.addConstraint(NSLayoutConstraint(item: competitorLabel, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: pointsLabel, attribute: NSLayoutAttribute.Height, multiplier: 0.5, constant: 0))
         
         self.blueScoreboard.addConstraint(NSLayoutConstraint(item: advantageLabel, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: pointsLabel, attribute: NSLayoutAttribute.Height, multiplier: 0.9, constant: 0))
         
@@ -326,20 +337,22 @@ class ScoreboardViewController: UIViewController, CountdownTimerDelegate {
     
     func hideNavigationBar() {
         self.navigationController?.navigationBarHidden = true
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
     }
     
     func showNavigationBar() {
         self.navigationController?.navigationBarHidden = false
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.Default, animated: false)
     }
     
     
     func updateScoreboard() {
-        self.redScore.text = NSString(format:"%02d", self.scoreboardModel.redScore)
-        self.redAdvantage.text = NSString(format:"%d", self.scoreboardModel.redAdvantage)
-        self.redPenalty.text = NSString(format:"%d", self.scoreboardModel.redPenalty)
+        self.redScore.text = NSString(format:"%02d", self.scoreboardModel.redScore) as String
+        self.redAdvantage.text = NSString(format:"%d", self.scoreboardModel.redAdvantage) as String
+        self.redPenalty.text = NSString(format:"%d", self.scoreboardModel.redPenalty) as String
 
-        self.blueScore.text = NSString(format:"%02d", self.scoreboardModel.blueScore)
-        self.blueAdvantage.text = NSString(format:"%d", self.scoreboardModel.blueAdvantage)
-        self.bluePenalty.text = NSString(format:"%d", self.scoreboardModel.bluePenalty)
+        self.blueScore.text = NSString(format:"%02d", self.scoreboardModel.blueScore) as String
+        self.blueAdvantage.text = NSString(format:"%d", self.scoreboardModel.blueAdvantage) as String
+        self.bluePenalty.text = NSString(format:"%d", self.scoreboardModel.bluePenalty) as String
     }
 }

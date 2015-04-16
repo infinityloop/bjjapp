@@ -10,7 +10,7 @@
 class TimerLabel: UILabel {
     init(frame: CGRect, timeNumber: NSInteger) {
         super.init(frame: frame)
-        self.text = NSString(format:"%02d",  timeNumber)
+        self.text = NSString(format:"%02d",  timeNumber) as String
         self.textColor = UIColor.whiteColor()
         self.setContentHuggingPriority(0, forAxis: UILayoutConstraintAxis.Vertical)
         self.setContentCompressionResistancePriority(0, forAxis: UILayoutConstraintAxis.Vertical)
