@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let window = window {
             window.backgroundColor = UIColor.whiteColor()
-            var viewController: MenuViewController = MenuViewController()
+            var viewController: ScoreboardViewController = ScoreboardViewController()
             
             self.navigationController = UINavigationController(rootViewController: viewController)
             

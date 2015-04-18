@@ -118,7 +118,6 @@ class TimerTableView: UITableView, UITableViewDataSource, UITableViewDelegate, U
 
         var indexPathForCell: NSIndexPath = self.getIndexPathForCell()
         var timeDifference = indexPathForCell.row - self.startSelectValue
-        println(timeDifference)
         if (timeDifference == 0) {
             return
         }

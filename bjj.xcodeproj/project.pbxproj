@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		441781E8EE2FE52D1A5D106A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B1A8034D6EA855835EA6F91 /* libPods.a */; };
-		752CD0561A99933F00836CE7 /* CompetitorTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CD0551A99933F00836CE7 /* CompetitorTableCell.swift */; };
 		75AABB361AA5209900A5BA73 /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AABB351AA5209900A5BA73 /* UIView+Utils.m */; };
 		75AABB3A1AA53D7F00A5BA73 /* TimerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AABB391AA53D7F00A5BA73 /* TimerTableView.swift */; };
 		75AABB3C1AA6922A00A5BA73 /* TimerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AABB3B1AA6922A00A5BA73 /* TimerTableViewCell.swift */; };
@@ -17,12 +16,9 @@
 		75CBF2971AD4B41A00A01396 /* ScoreboardLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CBF2961AD4B41A00A01396 /* ScoreboardLabel.swift */; };
 		75CBF2991AD4C02F00A01396 /* CountdownTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CBF2981AD4C02F00A01396 /* CountdownTimerView.swift */; };
 		75E1692E1A980CF20086FD3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E1692D1A980CF20086FD3F /* AppDelegate.swift */; };
-		75E169301A980CF20086FD3F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E1692F1A980CF20086FD3F /* MenuViewController.swift */; };
 		75E169351A980CF20086FD3F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75E169341A980CF20086FD3F /* Images.xcassets */; };
 		75E169441A980CF30086FD3F /* bjjTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E169431A980CF30086FD3F /* bjjTests.swift */; };
 		75E169511A98E2860086FD3F /* ScoreboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E1694F1A98E2860086FD3F /* ScoreboardViewController.swift */; };
-		75E169541A98EB410086FD3F /* AddCompetitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E169531A98EB410086FD3F /* AddCompetitorViewController.swift */; };
-		75E169581A98EC620086FD3F /* competitorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E169571A98EC620086FD3F /* competitorModel.swift */; };
 		75E169911A98F1AC0086FD3F /* NSDictionary+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E169901A98F1AC0086FD3F /* NSDictionary+Utils.m */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +34,6 @@
 
 /* Begin PBXFileReference section */
 		4B1A8034D6EA855835EA6F91 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		752CD0551A99933F00836CE7 /* CompetitorTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitorTableCell.swift; sourceTree = "<group>"; };
 		75AABB341AA5209900A5BA73 /* UIView+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utils.h"; sourceTree = "<group>"; };
 		75AABB351AA5209900A5BA73 /* UIView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utils.m"; sourceTree = "<group>"; };
 		75AABB391AA53D7F00A5BA73 /* TimerTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerTableView.swift; sourceTree = "<group>"; };
@@ -50,14 +45,11 @@
 		75E169281A980CF20086FD3F /* bjj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bjj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75E1692C1A980CF20086FD3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75E1692D1A980CF20086FD3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		75E1692F1A980CF20086FD3F /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		75E169341A980CF20086FD3F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		75E1693D1A980CF30086FD3F /* bjjTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bjjTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75E169421A980CF30086FD3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75E169431A980CF30086FD3F /* bjjTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bjjTests.swift; sourceTree = "<group>"; };
 		75E1694F1A98E2860086FD3F /* ScoreboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardViewController.swift; sourceTree = "<group>"; };
-		75E169531A98EB410086FD3F /* AddCompetitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCompetitorViewController.swift; sourceTree = "<group>"; };
-		75E169571A98EC620086FD3F /* competitorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = competitorModel.swift; sourceTree = "<group>"; };
 		75E1698B1A98F17E0086FD3F /* bjj-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bjj-Bridging-Header.h"; sourceTree = "<group>"; };
 		75E1698F1A98F1AC0086FD3F /* NSDictionary+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Utils.h"; sourceTree = "<group>"; };
 		75E169901A98F1AC0086FD3F /* NSDictionary+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Utils.m"; sourceTree = "<group>"; };
@@ -158,10 +150,7 @@
 		75E169551A98EBC00086FD3F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				75E169531A98EB410086FD3F /* AddCompetitorViewController.swift */,
 				75E1694F1A98E2860086FD3F /* ScoreboardViewController.swift */,
-				752CD0551A99933F00836CE7 /* CompetitorTableCell.swift */,
-				75E1692F1A980CF20086FD3F /* MenuViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -169,7 +158,6 @@
 		75E169561A98EC380086FD3F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				75E169571A98EC620086FD3F /* competitorModel.swift */,
 				75CBF2941AD4B1DC00A01396 /* ScoreboardModel.swift */,
 			);
 			name = Models;
@@ -337,12 +325,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75E169541A98EB410086FD3F /* AddCompetitorViewController.swift in Sources */,
 				75CBF2951AD4B1DC00A01396 /* ScoreboardModel.swift in Sources */,
 				75CBF2991AD4C02F00A01396 /* CountdownTimerView.swift in Sources */,
-				75E169301A980CF20086FD3F /* MenuViewController.swift in Sources */,
-				75E169581A98EC620086FD3F /* competitorModel.swift in Sources */,
-				752CD0561A99933F00836CE7 /* CompetitorTableCell.swift in Sources */,
 				75E169511A98E2860086FD3F /* ScoreboardViewController.swift in Sources */,
 				75E169911A98F1AC0086FD3F /* NSDictionary+Utils.m in Sources */,
 				75AABB3A1AA53D7F00A5BA73 /* TimerTableView.swift in Sources */,

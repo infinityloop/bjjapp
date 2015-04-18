@@ -243,7 +243,6 @@ class CountdownTimerView: UIView, TimeTableDelegate {
         }
     }
     
-    
     func toggleTableViewInteractivity(state: Bool) {
         self.minuteTableView.userInteractionEnabled = state
         self.secondTableView.userInteractionEnabled = state

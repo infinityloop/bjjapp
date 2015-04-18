@@ -28,6 +28,9 @@ class ScoreboardViewController: UIViewController, CountdownTimerDelegate {
     var competitor1Label: UILabel!
     var competitor2Label: UILabel!
     
+    let competitor1Default: NSString = "Competitor 1"
+    let competitor2Default: NSString = "Competitor 2"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,7 +41,7 @@ class ScoreboardViewController: UIViewController, CountdownTimerDelegate {
         self.timer.delegate = self
         
         self.redScoreboard = UIView(frame: CGRectZero)
-        self.redScoreboard.backgroundColor = UIColor.purpleColor()
+        self.redScoreboard.backgroundColor = UIColor.redColor()
         self.redScoreboard.setTranslatesAutoresizingMaskIntoConstraints(false)
         
         self.blueScoreboard = UIView(frame: CGRectZero)
@@ -59,8 +62,10 @@ class ScoreboardViewController: UIViewController, CountdownTimerDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBarHidden = false
-
+        
+        self.navigationController?.navigationBarHidden = true
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
+        
         self.layoutScoreboard()
         self.layoutRedScoreboard()
         self.layoutBlueScoreboard()
@@ -68,13 +73,7 @@ class ScoreboardViewController: UIViewController, CountdownTimerDelegate {
 
         self.view.layoutSubviews()
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
         
-        
-    }
-    
     func layoutScoreboard() {
         self.view.addConstraint(NSLayoutConstraint(item: self.redScoreboard, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Height, multiplier: 1.0, constant: 0))
         
@@ -100,9 +99,12 @@ class ScoreboardViewController: UIViewController, CountdownTimerDelegate {
     }
     
     func layoutRedScoreboard() {
-        var competitorLabel:ScoreboardLabel = ScoreboardLabel(frame: CGRectZero, text: "Competitor 1", fontSize: 80, textAlignment: NSTextAlignment.Center)
+        var competitorLabel:ScoreboardLabel = ScoreboardLabel(frame: CGRectZero, text: "", fontSize: 80, textAlignment: NSTextAlignment.Center)
         competitorLabel.baselineAdjustment = UIBaselineAdjustment.AlignCenters
         self.redScoreboard.addSubview(competitorLabel)
+        var competitorTapGesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "displaySetupDialog")
+        competitorLabel.addGestureRecognizer(competitorTapGesture)
+
         self.competitor1Label = competitorLabel
         
         var pointsLabel: ScoreboardLabel = ScoreboardLabel(frame: CGRectZero, text: "00", fontSize: 200, textAlignment: NSTextAlignment.Left)
@@ -132,7 +134,7 @@ class ScoreboardViewController: UIViewController, CountdownTimerDelegate {
         self.redScoreboard.addSubview(penaltyLabel)
         self.redPenalty = penaltyLabel
         var penaltySwipeGesture:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "decrementRedPenaltyValue:")
-        penaltySwipeGesture.direction = (UISwipeGestureRecognizerDirection.Left | UISwipeGestureRecognizerDirection.Right)
+        penaltySwipeGesture.direction = (UISwipeGestureRecognizerDirection.Left | UISwipeGestureRecognizerDirection.Right | UISwipeGestureRecognizerDirection.Down)
         var penaltyTapGesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "incrementRedPenaltyValue:")
         penaltyTapGesture.requireGestureRecognizerToFail(penaltySwipeGesture)
         self.redPenalty.addGestureRecognizer(penaltySwipeGesture)
@@ -178,15 +180,18 @@ class ScoreboardViewController: UIViewController, CountdownTimerDelegate {
     
     func layoutBlueScoreboard() {
         
-        var competitorLabel:ScoreboardLabel = ScoreboardLabel(frame: CGRectZero, text:"Competitor 2", fontSize: 80, textAlignment: NSTextAlignment.Center)
+        var competitorLabel:ScoreboardLabel = ScoreboardLabel(frame: CGRectZero, text:"", fontSize: 80, textAlignment: NSTextAlignment.Center)
         self.blueScoreboard.addSubview(competitorLabel)
+        var competitorTapGesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "displaySetupDialog")
+        competitorLabel.addGestureRecognizer(competitorTapGesture)
+
         self.competitor2Label = competitorLabel
         
         var pointsLabel: ScoreboardLabel = ScoreboardLabel(frame: CGRectZero, text: "00", fontSize: 200, textAlignment: NSTextAlignment.Right)
         self.blueScoreboard.addSubview(pointsLabel)
         self.blueScore = pointsLabel
         var scoreSwipeGesture:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "decrementBlueScoreValue:")
-        scoreSwipeGesture.direction = (UISwipeGestureRecognizerDirection.Left | UISwipeGestureRecognizerDirection.Right)
+        scoreSwipeGesture.direction = (UISwipeGestureRecognizerDirection.Left | UISwipeGestureRecognizerDirection.Right | UISwipeGestureRecognizerDirection.Down)
         var scoreTapGesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "incrementBlueScoreValue:")
         scoreTapGesture.requireGestureRecognizerToFail(scoreSwipeGesture)
         self.blueScore.addGestureRecognizer(scoreSwipeGesture)
@@ -196,7 +201,7 @@ class ScoreboardViewController: UIViewController, CountdownTimerDelegate {
         self.blueScoreboard.addSubview(advantageLabel)
         self.blueAdvantage = advantageLabel
         var advantageSwipeGesture:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "decrementBlueAdvantageValue:")
-        advantageSwipeGesture.direction = (UISwipeGestureRecognizerDirection.Left | UISwipeGestureRecognizerDirection.Right)
+        advantageSwipeGesture.direction = (UISwipeGestureRecognizerDirection.Left | UISwipeGestureRecognizerDirection.Right | UISwipeGestureRecognizerDirection.Down)
         var advantageTapGesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "incrementBlueAdvantageValue:")
         advantageTapGesture.requireGestureRecognizerToFail(advantageSwipeGesture)
         self.blueAdvantage.addGestureRecognizer(advantageSwipeGesture)
@@ -209,7 +214,7 @@ class ScoreboardViewController: UIViewController, CountdownTimerDelegate {
         self.blueScoreboard.addSubview(penaltyLabel)
         self.bluePenalty = penaltyLabel
         var penaltySwipeGesture:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "decrementBluePenaltyValue:")
-        penaltySwipeGesture.direction = (UISwipeGestureRecognizerDirection.Left | UISwipeGestureRecognizerDirection.Right)
+        penaltySwipeGesture.direction = (UISwipeGestureRecognizerDirection.Left | UISwipeGestureRecognizerDirection.Right | UISwipeGestureRecognizerDirection.Down)
         var penaltyTapGesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "incrementBluePenaltyValue:")
         penaltyTapGesture.requireGestureRecognizerToFail(penaltySwipeGesture)
         self.bluePenalty.addGestureRecognizer(penaltySwipeGesture)
@@ -301,61 +306,59 @@ class ScoreboardViewController: UIViewController, CountdownTimerDelegate {
     }
     
     func decrementRedScoreValue(sender: UISwipeGestureRecognizer) {
-        self.scoreboardModel.redScore--
+        if (self.scoreboardModel.redScore > 0) {
+            self.scoreboardModel.redScore--
+        }
         self.updateScoreboard()
     }
     
     func decrementRedAdvantageValue(sender: UISwipeGestureRecognizer) {
-        self.scoreboardModel.redAdvantage--
+        if (self.scoreboardModel.redAdvantage > 0) {
+            self.scoreboardModel.redAdvantage--
+        }
         self.updateScoreboard()
     }
     
     func decrementRedPenaltyValue(sender: UISwipeGestureRecognizer) {
-        self.scoreboardModel.redPenalty--
+        if (self.scoreboardModel.redPenalty > 0) {
+            self.scoreboardModel.redPenalty--
+        }
         self.updateScoreboard()
     }
     
     func decrementBlueScoreValue(sender: UISwipeGestureRecognizer) {
-        self.scoreboardModel.blueScore--
+        if (self.scoreboardModel.blueScore > 0) {
+            self.scoreboardModel.blueScore--
+        }
         self.updateScoreboard()
     }
     
     func decrementBlueAdvantageValue(sender: UISwipeGestureRecognizer) {
-        self.scoreboardModel.blueAdvantage--
+        if (self.scoreboardModel.blueAdvantage > 0) {
+            self.scoreboardModel.blueAdvantage--
+        }
         self.updateScoreboard()
     }
     
     func decrementBluePenaltyValue(sender: UISwipeGestureRecognizer) {
-        self.scoreboardModel.bluePenalty--
+        if (self.scoreboardModel.bluePenalty > 0) {
+            self.scoreboardModel.bluePenalty--
+        }
         self.updateScoreboard()
     }
     
     // MARK: - CountdownTimerDelegate Methods
     
     func timerDidFinish() {
-        self.showNavigationBar()
     }
     
     func timerDidStop() {
-        self.showNavigationBar()
     }
     
     func timerDidStart() {
-        self.hideNavigationBar()
     }
     
     // MARK: - Convenience Methods
-    
-    func hideNavigationBar() {
-        self.navigationController?.navigationBarHidden = true
-        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
-    }
-    
-    func showNavigationBar() {
-        self.navigationController?.navigationBarHidden = false
-        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.Default, animated: false)
-    }
-    
     
     func updateScoreboard() {
         self.redScore.text = NSString(format:"%02d", self.scoreboardModel.redScore) as String
@@ -372,13 +375,19 @@ class ScoreboardViewController: UIViewController, CountdownTimerDelegate {
         
         setupDialog.addTextFieldWithConfigurationHandler { (textField) -> Void in
             textField.placeholder = "Competitor 1's Name"
+            if (self.competitor1Label.text != self.competitor1Default) {
+                textField.text = self.competitor1Label.text
+            }
         }
         
         setupDialog.addTextFieldWithConfigurationHandler { (textField) -> Void in
             textField.placeholder = "Competitor 2's Name"
+            if (self.competitor2Label.text != self.competitor2Default) {
+                textField.text = self.competitor2Label.text
+            }
         }
 
-        var confirmAction:UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel) { (alertAction: UIAlertAction!) -> Void in
+        var confirmAction:UIAlertAction = UIAlertAction(title: "Start", style: UIAlertActionStyle.Cancel) { (alertAction: UIAlertAction!) -> Void in
             let competitor1TextField = setupDialog.textFields![0] as! UITextField
             let competitor2TextField = setupDialog.textFields![1] as! UITextField
             self.updateCompetitorNames(competitor1TextField.text, competitor2Name: competitor2TextField.text)
@@ -392,9 +401,13 @@ class ScoreboardViewController: UIViewController, CountdownTimerDelegate {
     func updateCompetitorNames(competitor1Name: NSString?, competitor2Name: NSString?) {
         if (competitor1Name != nil && competitor1Name!.length > 0) {
             self.competitor1Label.text = competitor1Name as? String
+        } else {
+            self.competitor1Label.text = self.competitor1Default as String
         }
         if (competitor2Name != nil && competitor2Name!.length > 0) {
             self.competitor2Label.text = competitor2Name as? String
+        } else {
+            self.competitor2Label.text = self.competitor2Default as String
         }
 
     }
